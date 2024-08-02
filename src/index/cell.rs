@@ -190,6 +190,19 @@ impl CellIndex {
         bits::get_resolution(self.0.get())
     }
 
+    /// Returns the u64 representation of the index.
+    ///
+    /// # Example
+    ///
+    /// ```
+    /// let index = h3o::CellIndex::try_from(0x8a1fb46622dffff)?;
+    /// assert_eq!(index.get_u64(), 0x8a1fb46622dffff);
+    /// # Ok::<(), h3o::error::InvalidCellIndex>(())
+    /// ```
+    pub const fn get_u64(self) -> u64 {
+        self.0.get()
+    }
+
     /// Returns the base cell of the index.
     ///
     /// # Example
